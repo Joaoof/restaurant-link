@@ -3,6 +3,7 @@ import { WhatsAppSection } from "@/components/whatsapp-section"
 import { LocationsSection } from "@/components/locations-section"
 import { SocialSection } from "@/components/social-section"
 import { Footer } from "@/components/footer"
+import { WelcomeToast } from "@/components/welcome-start"
 
 export default function Page() {
   return (
@@ -25,6 +26,7 @@ export default function Page() {
       <SocialSection />
 
       <Footer />
+      <WelcomeToast />
     </main>
   )
 }
