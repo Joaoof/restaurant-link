@@ -33,7 +33,7 @@ export function HeroSection() {
             <Image src="/202105052240_Qs9g_i.avif" alt="Logo 1808 Hamburgueria Artesanal" fill sizes="96px" className="object-cover" />
           </div>
           <div>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground text-balance">
+            <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-3xl font-extrabold tracking-tight text-foreground text-balance">
               1808 Hamburgueria Artesanal
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg mt-2 font-medium">
