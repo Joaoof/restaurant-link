@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { WhatsAppSection } from "@/components/whatsapp-section"
 import { LocationsSection } from "@/components/locations-section"
-import { MenuSection } from "@/components/menu-section"
 import { SocialSection } from "@/components/social-section"
 import { Footer } from "@/components/footer"
 
@@ -22,8 +21,6 @@ export default function Page() {
       <WhatsAppSection />
 
       <LocationsSection />
-
-      <MenuSection />
 
       <SocialSection />
 

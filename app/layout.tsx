@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fredoka = Fredoka({ subsets: ["latin"], variable: "--font-fredoka", weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: 'Zezao Lanches | Peqa pelo WhatsApp',
-  description: 'Faca seu pedido pelo WhatsApp em qualquer uma das 3 unidades do Zezao Lanches. Lanches artesanais, porcoes e muito mais!',
+  title: '1808 | Peça pelo nosso WhatsApp',
+  description: 'Faca seu pedido pelo WhatsApp em qualquer uma das 2 unidades da 1808. Lanches artesanais, porcoes e muito mais!',
   icons: {
     icon: [
       {

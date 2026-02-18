@@ -1,21 +1,16 @@
 const stores = [
   {
-    name: "Centro",
-    phone: "5511999999901",
-    message: "Oi! Quero fazer um pedido na unidade Centro",
+    name: "São João",
+    phone: "5563992833754",
+    message: "Oi! Quero fazer um pedido na unidade São João",
     hours: "Seg a Sab, 18h - 00h",
+    highlight: true,
   },
   {
-    name: "Jardins",
-    phone: "5511999999902",
-    message: "Oi! Quero fazer um pedido na unidade Jardins",
+    name: "Entroncamento",
+    phone: "5563992662592",
+    message: "Oi! Quero fazer um pedido na unidade Entroncamento",
     hours: "Seg a Dom, 18h - 01h",
-  },
-  {
-    name: "Praia",
-    phone: "5511999999903",
-    message: "Oi! Quero fazer um pedido na unidade Praia",
-    hours: "Qui a Dom, 17h - 23h",
   },
 ]
 
@@ -58,13 +53,16 @@ export function WhatsAppSection() {
   return (
     <section className="px-4 pb-8">
       <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-foreground text-center mb-5">
-        {"Faca seu pedido"}
+        Faça seu pedido
       </h2>
+
       <div className="flex flex-col gap-3 max-w-md mx-auto">
         {stores.map((store) => (
           <a
             key={store.name}
-            href={`https://wa.me/${store.phone}?text=${encodeURIComponent(store.message)}`}
+            href={`https://wa.me/${store.phone}?text=${encodeURIComponent(
+              store.message
+            )}&utm_source=site&utm_medium=whatsapp&utm_campaign=${store.name}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 rounded-xl bg-card border border-border px-5 py-4 transition-all hover:border-primary/50 hover:bg-card/80 active:scale-[0.98]"
@@ -72,14 +70,25 @@ export function WhatsAppSection() {
             <div className="flex items-center justify-center w-11 h-11 rounded-full bg-[#25D366]/15 shrink-0">
               <WhatsAppIcon />
             </div>
+
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-foreground text-sm">
-                {"Unidade "}{store.name}
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="font-semibold text-foreground text-sm">
+                  Unidade {store.name}
+                </p>
+
+                {store.highlight && (
+                  <span className="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full">
+                    Mais pedidos
+                  </span>
+                )}
+              </div>
+
               <p className="text-muted-foreground text-xs mt-0.5">
                 {store.hours}
               </p>
             </div>
+
             <ArrowRightIcon />
           </a>
         ))}

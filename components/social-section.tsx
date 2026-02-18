@@ -35,11 +35,11 @@ export function SocialSection() {
     <section className="px-4 pb-10">
       <div className="flex flex-col items-center gap-4 max-w-md mx-auto">
         <h2 className="font-[var(--font-display)] text-xl font-semibold text-foreground text-center">
-          {"Siga o Zezao"}
+          {"Siga a 1808"}
         </h2>
         <div className="flex items-center gap-3">
           <a
-            href="https://instagram.com/zezaolanches"
+            href="https://www.instagram.com/1808hamburgueria/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Siga no Instagram"
@@ -47,18 +47,9 @@ export function SocialSection() {
           >
             <InstagramIcon className="w-5 h-5" />
           </a>
-          <a
-            href="https://tiktok.com/@zezaolanches"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Siga no TikTok"
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
-          >
-            <TikTokIcon className="w-5 h-5" />
-          </a>
         </div>
         <p className="text-muted-foreground text-xs text-center">
-          {"@zezaolanches"}
+          {"@1808hamburgueria"}
         </p>
       </div>
     </section>

@@ -1,13 +1,30 @@
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="px-4 pb-8 pt-4 border-t border-border">
-      <div className="max-w-md mx-auto text-center">
-        <p className="text-muted-foreground text-xs">
-          {"Zezao Lanches"} &mdash; {"Todos os direitos reservados"}
-        </p>
-        <p className="text-muted-foreground/60 text-[10px] mt-1">
-          {"Feito com carinho para nossos clientes"}
-        </p>
+    <footer className="w-full border-t bg-background py-6 mt-auto">
+      <div className="container max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4 text-xs text-muted-foreground">
+        
+        {/* Bloco Legal (Esquerda no Desktop) */}
+        <div className="text-center md:text-left">
+          <p>
+            &copy; {currentYear} 1080 Araguaína. Todos os direitos reservados.
+          </p>
+        </div>
+
+        {/* Bloco Técnico (Direita no Desktop) */}
+        <div className="flex items-center gap-1 opacity-80 hover:opacity-100 transition-opacity">
+          <span>Desenvolvido por</span>
+          <a 
+            href="https://joaoof.com.br" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-semibold text-foreground hover:text-primary transition-colors"
+          >
+            Joaoof
+          </a>
+        </div>
+
       </div>
     </footer>
   )
