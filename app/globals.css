@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.13 0.01 60);
+  --foreground: oklch(0.96 0.01 80);
+  --card: oklch(0.18 0.01 60);
+  --card-foreground: oklch(0.96 0.01 80);
+  --primary: oklch(0.72 0.17 55);
+  --primary-foreground: oklch(0.13 0.01 60);
+  --secondary: oklch(0.22 0.01 60);
+  --secondary-foreground: oklch(0.90 0.01 80);
+  --muted: oklch(0.22 0.015 60);
+  --muted-foreground: oklch(0.65 0.02 70);
+  --accent: oklch(0.60 0.20 25);
+  --accent-foreground: oklch(0.98 0.01 80);
+  --border: oklch(0.28 0.015 60);
+  --input: oklch(0.28 0.015 60);
+  --ring: oklch(0.72 0.17 55);
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-display: var(--font-fredoka), 'Fredoka', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
