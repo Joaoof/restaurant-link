@@ -79,7 +79,7 @@ function StoreSelectionModal({ isOpen, onClose }) {
             <button
               key={unidade.id}
               disabled={unidade.status === "Fechado"}
-              className="flex items-start gap-4 p-4 text-left border border-border rounded-xl hover:border-primary hover:bg-primary/5 transition-colors disabled:opacity-50 disabled:pointer-events-none group/card focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+              className="flex items-start gap-4 p-4 text-left border border-border rounded-xl hover:border-primary hover:bg-primary/5 transition-colors disabled:opacity-50 disabled:pointer-events-none group/card focus-visible:outline focus-visible:outline-primary"
             >
               <div className="p-2 rounded-full bg-secondary text-secondary-foreground group-hover/card:bg-primary group-hover/card:text-primary-foreground transition-colors shrink-0">
                 <MapPinIcon className="w-5 h-5" />
@@ -128,7 +128,7 @@ export function HeroSection() {
         <div className="relative w-full max-w-3xl aspect-[4/3] sm:aspect-[21/9] rounded-2xl overflow-hidden mb-8 shadow-xl border border-border/50 group/hero">
           <Image src="/hero.jpg" alt="Smash burger artesanal da 1808 Hamburgueria" fill className="object-cover transition-transform duration-700 group-hover/hero:scale-105" priority sizes="(max-width: 768px) 100vw, 800px" />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
 
           <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-4">
             <div>
@@ -142,7 +142,7 @@ export function HeroSection() {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full bg-emerald-600 px-8 py-3.5 text-base font-bold text-white shadow-[0_4px_14px_0_rgba(5,150,105,0.39)] transition-all duration-300 hover:bg-emerald-700 hover:shadow-[0_6px_20px_rgba(5,150,105,0.23)] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 w-full sm:w-auto shrink-0"
+              className="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full bg-emerald-600 px-8 py-3.5 text-base font-bold text-white shadow-[0_4px_14px_0_rgba(5,150,105,0.39)] transition-all duration-300 hover:bg-emerald-700 hover:shadow-[0_6px_20px_rgba(5,150,105,0.23)] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-emerald-600 w-full sm:w-auto shrink-0"
             >
               <BagIcon />
               <span className="tracking-wide text-white">Fazer Pedido Agora</span>
