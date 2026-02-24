@@ -3,14 +3,30 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 
-const locations = [
+interface Location {
+  name: string
+  address: string
+  hours: string
+  image: string
+  mapsUrl: string
+  phone: string
+  whatsappMessage: string
+  orderUrl: string
+}
+
+interface LocationsSectionProps {
+  locations?: Location[]
+}
+
+const defaultLocations: Location[] = [
   {
     name: "Unidade I - São João",
     address: "Av. 1º de Janeiro, 2888 - São João",
     hours: "Seg a Sab, 18h - 00h",
     image: "/{0B6B25D4-1A43-4986-B4A7-3FC04D1A6D44}.png", // Verifique se o caminho está correto
     mapsUrl: "https://maps.google.com/?q=Av.+1º+de+Janeiro+2888+Araguaína+TO",
-    whatsappUrl: "https://wa.me/5563992833754",
+    phone: "5563992833754",
+    whatsappMessage: "Oi! Quero fazer um pedido na unidade São João",
     orderUrl: "https://1808entroncamento.menudino.com/",
   },
   {
@@ -19,7 +35,8 @@ const locations = [
     hours: "Seg a Dom, 18h - 01h",
     image: "/{2B22EB4B-D4B4-4E88-821D-ED328C057B59}.png", // Verifique se o caminho está correto
     mapsUrl: "https://maps.google.com/?q=Entroncamento+Araguaína+TO",
-    whatsappUrl: "https://wa.me/5563992662592",
+    phone: "5563992662592",
+    whatsappMessage: "Oi! Quero fazer um pedido na unidade Entroncamento",
     orderUrl: "https://1808entroncamento.menudino.com/",
   },
 ]
@@ -37,9 +54,9 @@ function CloseIcon({ className }: { className?: string }) {
   return <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 }
 
-export function LocationsSection() {
+export function LocationsSection({ locations = defaultLocations }: LocationsSectionProps) {
   // Estado para controlar qual loja foi clicada (null = modal fechada)
-  const [selectedLocation, setSelectedLocation] = useState<typeof locations[0] | null>(null)
+  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null)
 
   // Fecha modal ao apertar ESC
   useEffect(() => {
@@ -152,7 +169,7 @@ export function LocationsSection() {
 
               {/* Botão WhatsApp */}
               <a
-                href={selectedLocation.whatsappUrl}
+                href={`https://wa.me/${selectedLocation.phone}?text=${encodeURIComponent(selectedLocation.whatsappMessage)}`}
                 target="_blank"
                 className="flex items-center justify-center w-full gap-3 p-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition shadow-sm"
               >

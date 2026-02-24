@@ -22,29 +22,40 @@ const ArrowDownIcon = () => (
   </svg>
 )
 
-export function HeroSection() {
+interface HeroSectionProps {
+  data: {
+    name: string;
+    subtitle: string;
+    logo: string;
+    heroImage: string;
+    // Usando any[] por enquanto, mas idealmente você tiparia com a interface exata da Location
+    locations: any[]; 
+  }
+}
+
+export function HeroSection({ data }: HeroSectionProps) {
   return (
     <>
       <section className="relative flex flex-col items-center pt-12 pb-16 px-4 max-w-5xl mx-auto">
 
-        {/* Logo & Título */}
+        {/* Logo & Título Dinâmicos */}
         <div className="flex flex-col items-center gap-4 mb-10 text-center">
           <div className="relative flex items-center justify-center w-24 h-24 rounded-full border-4 border-primary/10 bg-background overflow-hidden shadow-sm">
-            <Image src="/202105052240_Qs9g_i.avif" alt="Logo 1808 Hamburgueria Artesanal" fill sizes="96px" className="object-cover" />
+            <Image src={data.logo} alt={`Logo ${data.name}`} fill sizes="96px" className="object-cover" />
           </div>
           <div>
             <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-3xl font-extrabold tracking-tight text-foreground text-balance">
-              1808 Hamburgueria Artesanal
+              {data.name}
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg mt-2 font-medium">
-              Lanches artesanais desde 2018
+              {data.subtitle}
             </p>
           </div>
         </div>
 
-        {/* Hero Image & CTA */}
+        {/* Hero Image Dinâmica & CTA */}
         <div className="relative w-full max-w-3xl aspect-[4/3] sm:aspect-[21/9] rounded-2xl overflow-hidden mb-8 shadow-xl border border-border/50 group/hero">
-          <Image src="/hero.jpg" alt="Smash burger artesanal da 1808 Hamburgueria" fill className="object-cover transition-transform duration-700 group-hover/hero:scale-105" priority sizes="(max-width: 768px) 100vw, 800px" />
+          <Image src={data.heroImage} alt={`Imagem principal ${data.name}`} fill className="object-cover transition-transform duration-700 group-hover/hero:scale-105" priority sizes="(max-width: 768px) 100vw, 800px" />
 
           <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
 
@@ -69,10 +80,10 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Rodapé Informativo */}
+        {/* Rodapé Informativo Dinâmico com correção gramatical de plural */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 text-secondary-foreground text-sm font-medium border border-border">
           <MapPinIcon className="w-4 h-4 text-primary shrink-0" />
-          <span>3 unidades para te atender</span>
+          <span>{data.locations.length} {data.locations.length === 1 ? "unidade" : "unidades"} para te atender</span>
         </div>
       </section>
     </>

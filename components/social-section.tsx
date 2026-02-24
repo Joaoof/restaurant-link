@@ -30,16 +30,21 @@ function TikTokIcon({ className }: { className?: string }) {
   )
 }
 
-export function SocialSection() {
+interface SocialSectionProps {
+  instagram: string
+  instagramUrl: string
+}
+
+export function SocialSection({ instagram, instagramUrl }: SocialSectionProps) {
   return (
     <section className="px-4 pb-10">
       <div className="flex flex-col items-center gap-4 max-w-md mx-auto">
         <h2 className="font-[var(--font-display)] text-xl font-semibold text-foreground text-center">
-          {"Siga a 1808"}
+          {`Siga ${instagram}`}
         </h2>
         <div className="flex items-center gap-3">
           <a
-            href="https://www.instagram.com/1808hamburgueria/"
+            href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Siga no Instagram"
@@ -49,7 +54,7 @@ export function SocialSection() {
           </a>
         </div>
         <p className="text-muted-foreground text-xs text-center">
-          {"@1808hamburgueria"}
+          {instagram}
         </p>
       </div>
     </section>

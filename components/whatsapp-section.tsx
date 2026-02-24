@@ -1,15 +1,27 @@
-const stores = [
+interface WhatsAppLocation {
+  name: string
+  phone: string
+  whatsappMessage: string
+  hours: string
+  highlight?: boolean
+}
+
+interface WhatsAppSectionProps {
+  locations?: WhatsAppLocation[]
+}
+
+const fallbackStores: WhatsAppLocation[] = [
   {
     name: "São João",
     phone: "5563992833754",
-    message: "Oi! Quero fazer um pedido na unidade São João",
+    whatsappMessage: "Oi! Quero fazer um pedido na unidade São João",
     hours: "Seg a Sab, 18h - 00h",
     highlight: true,
   },
   {
     name: "Entroncamento",
     phone: "5563992662592",
-    message: "Oi! Quero fazer um pedido na unidade Entroncamento",
+    whatsappMessage: "Oi! Quero fazer um pedido na unidade Entroncamento",
     hours: "Seg a Dom, 18h - 01h",
   },
 ]
@@ -49,7 +61,7 @@ function ArrowRightIcon() {
   )
 }
 
-export function WhatsAppSection() {
+export function WhatsAppSection({ locations = fallbackStores }: WhatsAppSectionProps) {
   return (
     <section className="px-4 pb-8">
       <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-foreground text-center mb-5">
@@ -57,11 +69,11 @@ export function WhatsAppSection() {
       </h2>
 
       <div className="flex flex-col gap-3 max-w-md mx-auto">
-        {stores.map((store) => (
+        {locations.map((store) => (
           <a
             key={store.name}
             href={`https://wa.me/${store.phone}?text=${encodeURIComponent(
-              store.message
+              store.whatsappMessage
             )}&utm_source=site&utm_medium=whatsapp&utm_campaign=${store.name}`}
             target="_blank"
             rel="noopener noreferrer"
