@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Fredoka } from 'next/font/google'
+import { Inter, Fredoka, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fredoka = Fredoka({ subsets: ["latin"], variable: "--font-fredoka", weight: ["400", "500", "600", "700"] });
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+})
 
 export const metadata: Metadata = {
   title: '1808 | Peça pelo nosso WhatsApp',

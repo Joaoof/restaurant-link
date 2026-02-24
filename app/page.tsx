@@ -10,6 +10,34 @@ const ArrowRightIcon = ({ className = "w-4 h-4" }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
 )
 
+const clientLogos = [
+  { id: 'psicoclin', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mYxD4zQ4Oba6GIbjcsNCvpeWP-xCETf9fA&s', alt: 'PsicoClin' },
+  { id  : 'adfav', src: 'adfav.png', alt: 'ADFAV' },
+  { id: 'cliente-3', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrhZGsEbgCxO4maCq_K0h9IUeuVzeo9U7Mw&s', alt: 'Cliente 3' },
+  { id: 'cliente-4', src: 'daimond.png', alt: 'Cliente 4' },
+];  
+
+const portfolioProjects = [
+  {
+    id: '1808',
+    title: '1808 Hamburgueria',
+    imageSrc: '/image.png', // Substitua pelo caminho real
+    link: '/1808'
+  },
+  {
+    id: 'psicoclin',
+    title: 'PsicoClin',
+    imageSrc: '/caminho/para/imagem-psicoclin.jpg',
+    link: '/psicoclin'
+  },
+  {
+    id: 'projeto3',
+    title: 'Projeto 3',
+    imageSrc: '/caminho/para/imagem-3.jpg',
+    link: '/projeto3'
+  }
+];
+
 export default function PlatformLandingPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden selection:bg-violet-600 selection:text-white">
@@ -42,81 +70,66 @@ export default function PlatformLandingPage() {
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-violet-400/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-20 left-1/4 w-[400px] h-[300px] bg-cyan-400/20 blur-[100px] rounded-full pointer-events-none" />
 
-        <h1 className="relative z-10 max-w-4xl font-extrabold text-5xl md:text-7xl tracking-tighter leading-[1.05] text-slate-900 mb-6">
-          Seu link na bio pode ser <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">muito mais.</span>
-        </h1>
+        <h1 className="font-montserrat relative z-10 max-w-4xl font-extrabold text-3xl md:text-5xl tracking-tighter leading-[1.05] text-slate-900 mb-6">
+  Seu link na bio pode ser <br className="hidden md:block" />
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">muito mais.</span>
+</h1>
         
         <p className="relative z-10 max-w-2xl text-lg md:text-xl text-slate-600 mb-10 font-medium tracking-tight">
           O único link que o seu restaurante precisa. Centralize cardápios, direcione clientes para o WhatsApp da unidade correta e aumente seus pedidos.
         </p>
 
-        <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 mb-16">
-          <Link href="#planos" className="w-full sm:w-auto rounded-full bg-violet-600 px-8 py-4 text-base font-bold text-white shadow-[0_0_40px_rgba(124,58,237,0.3)] hover:bg-violet-700 hover:scale-105 transition-all duration-300">
-            Começar de graça
-          </Link>
-          
-          <div className="flex items-center gap-3 px-4 py-2">
+        <div className="flex items-center gap-3 px-4 py-2">
             <div className="flex -space-x-3">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                  {/* Simulando avatares reais com cor sólida para o placeholder */}
-                  <div className={`w-full h-full bg-gradient-to-br from-slate-300 to-slate-400`} />
+              {clientLogos.map((logo) => (
+                <div 
+                  key={logo.id} 
+                  className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center"
+                >
+                  <img 
+                    src={logo.src} 
+                    alt={`Logo ${logo.alt}`} 
+                    className="w-full h-full object-cover" 
+                  />
                 </div>
               ))}
             </div>
-            <div className="flex flex-col text-left">
-              <span className="text-sm font-bold text-slate-900 leading-tight">+2.000 locais</span>
-              <span className="text-xs text-slate-500 font-medium">já utilizam</span>
-            </div>
-          </div>
-        </div>
+  <div className="flex flex-col text-left">
+    <span className="text-sm font-bold text-slate-900 leading-tight">Alguns locais</span>
+    <span className="text-xs text-slate-500 font-medium">já utilizam</span>
+  </div>
+</div>
 
         {/* FAIXA DE TEMPLATES (MOCKUPS Simulação) */}
         <div id="templates" className="relative w-full max-w-[100vw] overflow-hidden py-10">
-          <div className="flex gap-6 justify-center px-4 min-w-max">
-            {/* Mockup 1: Exemplo Hamburgueria (Seu cliente real) */}
-            <Link href="/1808" target="_blank" className="group relative w-[280px] h-[550px] bg-zinc-900 rounded-[2.5rem] border-8 border-slate-100 shadow-2xl overflow-hidden flex flex-col hover:-translate-y-4 transition-transform duration-500 cursor-pointer">
-              <div className="h-40 bg-[url('/hero.jpg')] bg-cover bg-center opacity-80" />
-              <div className="absolute top-32 left-1/2 -translate-x-1/2 w-20 h-20 bg-black rounded-full border-4 border-zinc-900 overflow-hidden">
-                 <Image src="/202105052240_Qs9g_i.avif" alt="1808" fill className="object-cover" />
-              </div>
-              <div className="pt-16 pb-6 px-4 text-center">
-                <h3 className="text-white font-bold text-xl">1808 Hamburgueria</h3>
-                <p className="text-zinc-400 text-sm mt-1">Lanches artesanais</p>
-                <div className="w-full bg-zinc-800 rounded-xl p-3 mt-6 text-white text-sm font-medium">Unidade São João</div>
-                <div className="w-full bg-zinc-800 rounded-xl p-3 mt-3 text-white text-sm font-medium">Unidade Entroncamento</div>
-              </div>
-              <div className="absolute inset-0 bg-violet-600/0 group-hover:bg-violet-600/20 transition-colors flex items-center justify-center">
-                <div className="translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all bg-white text-violet-900 font-bold px-6 py-3 rounded-full flex items-center gap-2">Ver página <ArrowRightIcon /></div>
-              </div>
-            </Link>
-
-            {/* Mockup 2: Açaí Simulação */}
-            <div className="relative w-[280px] h-[550px] bg-purple-900 rounded-[2.5rem] border-8 border-slate-100 shadow-xl overflow-hidden flex flex-col translate-y-8">
-              <div className="h-40 bg-purple-800" />
-              <div className="absolute top-32 left-1/2 -translate-x-1/2 w-20 h-20 bg-purple-500 rounded-full border-4 border-purple-900" />
-              <div className="pt-16 pb-6 px-4 text-center opacity-50">
-                <div className="h-6 bg-purple-800 rounded w-3/4 mx-auto mb-2" />
-                <div className="h-4 bg-purple-800 rounded w-1/2 mx-auto" />
-                <div className="w-full bg-purple-800 rounded-xl h-12 mt-6" />
-                <div className="w-full bg-purple-800 rounded-xl h-12 mt-3" />
-              </div>
-            </div>
-
-            {/* Mockup 3: Pizza Simulação */}
-            <div className="relative w-[280px] h-[550px] bg-orange-50 rounded-[2.5rem] border-8 border-slate-100 shadow-xl overflow-hidden flex flex-col translate-y-4 hidden md:flex">
-              <div className="h-40 bg-orange-200" />
-              <div className="absolute top-32 left-1/2 -translate-x-1/2 w-20 h-20 bg-orange-400 rounded-full border-4 border-orange-50" />
-              <div className="pt-16 pb-6 px-4 text-center opacity-50">
-                <div className="h-6 bg-orange-200 rounded w-3/4 mx-auto mb-2" />
-                <div className="h-4 bg-orange-200 rounded w-1/2 mx-auto" />
-                <div className="w-full bg-orange-200 rounded-xl h-12 mt-6" />
-                <div className="w-full bg-orange-200 rounded-xl h-12 mt-3" />
-              </div>
-            </div>
+  <div className="flex gap-6 justify-center px-4 min-w-max">
+    {portfolioProjects.map((project) => (
+      <Link 
+        key={project.id}
+        href={project.link} 
+        target="_blank" 
+        className="group relative w-[280px] h-[550px] rounded-[2.5rem] border-8 border-slate-100 shadow-2xl overflow-hidden block hover:-translate-y-4 transition-transform duration-500 cursor-pointer bg-slate-200 shrink-0"
+      >
+        {/* A imagem ocupa todo o espaço do container simulando a tela */}
+        <Image 
+          src={project.imageSrc} 
+          alt={`Preview do projeto ${project.title}`} 
+          fill 
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 280px"
+          priority={project.id === '1808'} // Prioriza o carregamento da primeira imagem
+        />
+        
+        {/* Overlay de Interação (mantido para UX) */}
+        <div className="absolute inset-0 bg-violet-900/0 group-hover:bg-violet-900/40 transition-colors duration-300 flex items-center justify-center">
+          <div className="translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-violet-900 font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg">
+            Ver página {/* Insira seu ícone aqui */}
           </div>
         </div>
+      </Link>
+    ))}
+  </div>
+</div>
         
         <p className="text-slate-500 font-medium text-sm mt-8">Tudo que o seu negócio precisa no <span className="text-violet-600 font-bold">template perfeito</span></p>
       </section>
